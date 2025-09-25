@@ -8,22 +8,23 @@ if (error404) {
 
   function animate404() {
     glow += increment;
-    if(glow >= 1 || glow <= 0) increment *= -1;
+    if (glow >= 1 || glow <= 0) increment *= -1;
     error404.style.textShadow = `
-      0 0 ${10 + glow*20}px #f00,
-      0 0 ${20 + glow*40}px #ff0,
-      0 0 ${30 + glow*60}px #f00
+      0 0 ${10 + glow * 20}px #f00,
+      0 0 ${20 + glow * 40}px #ff0,
+      0 0 ${30 + glow * 60}px #f00
     `;
     requestAnimationFrame(animate404);
   }
+
   animate404();
 }
 
 // ==========================
 // Botones neon hover efecto
 // ==========================
-const links = document.querySelectorAll('#error-404 a');
-links.forEach(link => {
+const neonLinks = document.querySelectorAll('#error-404 a, .social-list li a');
+neonLinks.forEach(link => {
   link.addEventListener('mouseenter', () => {
     link.style.boxShadow = '0 0 30px #0ff, 0 0 60px #00f';
     link.style.transform = 'translateY(-3px) scale(1.05)';
@@ -35,7 +36,7 @@ links.forEach(link => {
 });
 
 // ==========================
-// HUD flotante (misma funcionalidad que en index)
+// Header flotante
 // ==========================
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
@@ -47,30 +48,24 @@ window.addEventListener('scroll', () => {
 });
 
 // ==========================
-// Modal para futuras imágenes/videos si se agregan
+// Modal para futuras imágenes/videos
 // ==========================
 const modal = document.querySelector('.modal');
-if(modal){
+if (modal) {
   const modalImg = document.createElement('img');
   modalImg.classList.add('modal-inner');
   modal.appendChild(modalImg);
 
   const closeModal = modal.querySelector('.close');
-
-  document.querySelectorAll('.project-card img').forEach(img => {
-    img.addEventListener('click', () => {
-      modal.style.display = 'flex';
-      modalImg.src = img.src;
+  if (closeModal) {
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modalImg.src = '';
     });
-  });
-
-  closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
-    modalImg.src = '';
-  });
+  }
 
   modal.addEventListener('click', e => {
-    if(e.target === modal) {
+    if (e.target === modal) {
       modal.style.display = 'none';
       modalImg.src = '';
     }
