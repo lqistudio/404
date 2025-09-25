@@ -1,12 +1,22 @@
 /* ==========================
    Página 404 / Construcción
 ========================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Sin scroll */
+  font-family: 'Press Start 2P', monospace;
+  background: #111;
+  color: #fff;
+}
+
 #error-404 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   text-align: center;
   padding: 160px 20px 60px; /* Más espacio arriba por el header fijo */
   gap: 20px; /* Espaciado entre elementos */
@@ -89,14 +99,45 @@
 }
 
 /* ==========================
-   Animaciones
+   Worker animación
+========================== */
+.worker-container {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.worker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: walkText 6s linear infinite;
+}
+.worker img {
+  width: 50px;
+  height: auto;
+}
+.worker-text {
+  font-size: 1rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #00f;
+}
+@keyframes walkText {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ==========================
+   Animaciones 404
 ========================== */
 @keyframes neonPulse404 {
   0% { text-shadow: 0 0 5px #f00, 0 0 10px #ff0; color:#fff; }
   50% { text-shadow: 0 0 20px #f00, 0 0 40px #ff0; color:#fff; }
   100% { text-shadow: 0 0 5px #f00, 0 0 10px #ff0; color:#fff; }
 }
-
 @keyframes glowTitle {
   0% { text-shadow:0 0 10px #0ff,0 0 20px #00f,0 0 40px #0ff; }
   50% { text-shadow:0 0 20px #0ff,0 0 40px #00f,0 0 80px #0ff; }
@@ -125,4 +166,6 @@ footer a:hover { text-shadow: 0 0 10px #0ff; }
   #error-404 p { font-size: 0.9em; }
   .social-list li a { width: 45px; height: 45px; font-size: 1.4rem; }
   header nav ul { flex-direction: column; gap: 10px; }
+  .worker img { width: 35px; }
+  .worker-text { font-size: 0.8rem; }
 }
