@@ -1,14 +1,68 @@
-/* ==== Página 404 ==== */
+/* ==========================
+   Fuente estilo retro / pixel
+========================== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* ==========================
+   Reset y body
+========================== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { 
+  font-family:'Press Start 2P', monospace; 
+  background:#111; 
+  color:#fff; 
+  overflow-x:hidden; 
+}
+
+/* ==========================
+   Header y menú
+========================== */
+header {
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+  width:100%;
+  background: rgba(0,0,0,0.85);
+  border-bottom: 2px solid #0ff;
+  padding: 15px 0;
+  display:flex;
+  justify-content:center;
+}
+header nav ul {
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+header nav ul li a {
+  color:#fff;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:1em;
+  position:relative;
+  transition: all 0.3s ease;
+}
+header nav ul li a:hover {
+  color:#0ff;
+  text-shadow:0 0 8px #0ff,0 0 20px #00f;
+}
+
+/* ==========================
+   Página 404
+========================== */
 #error-404 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 120px); /* Ajusta según header/footer */
+  min-height: 100vh;
   text-align: center;
-  padding: 20px;
+  padding: 120px 20px 20px; /* Ajusta 120px según header */
 }
 
+/* Número 404 */
 #error-404 h1 {
   font-size: 6rem;
   color: #e74c3c;
@@ -17,6 +71,7 @@
   animation: neonPulse404 1.5s infinite alternate;
 }
 
+/* Texto principal */
 #error-404 h2 {
   font-size: 2rem;
   color: #0ff;
@@ -25,23 +80,26 @@
   animation: glowTitle 2s infinite alternate;
 }
 
+/* Párrafos */
 #error-404 p {
   font-size: 1em;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  max-width:600px;
 }
 
+/* Enlaces / botones */
 #error-404 a {
   color: #0ff;
   text-decoration: none;
   font-weight: bold;
   border: 2px solid #0ff;
-  padding: 8px 15px;
+  padding: 10px 20px;
   border-radius: 6px;
   box-shadow:0 0 15px #0ff, inset 0 0 8px #00f;
   transition: all 0.3s ease;
+  margin: 5px;
 }
-
 #error-404 a:hover {
   background: #0ff;
   color: #111;
@@ -49,8 +107,44 @@
   transform: translateY(-3px) scale(1.05);
 }
 
+/* ==========================
+   Animaciones
+========================== */
 @keyframes neonPulse404 {
   0% { text-shadow: 0 0 5px #f00, 0 0 10px #ff0; color:#fff; }
   50% { text-shadow: 0 0 20px #f00, 0 0 40px #ff0; color:#fff; }
   100% { text-shadow: 0 0 5px #f00, 0 0 10px #ff0; color:#fff; }
+}
+
+@keyframes glowTitle {
+  0% { text-shadow:0 0 10px #0ff,0 0 20px #00f,0 0 40px #0ff; }
+  50% { text-shadow:0 0 20px #0ff,0 0 40px #00f,0 0 80px #0ff; }
+  100% { text-shadow:0 0 10px #0ff,0 0 20px #00f,0 0 40px #0ff; }
+}
+
+/* ==========================
+   Footer
+========================== */
+footer {
+  padding:40px 20px;
+  text-align:center;
+  border-top:2px solid #0ff;
+  margin-top:50px;
+  color:#fff;
+}
+footer a {
+  color:#0ff;
+  text-decoration:none;
+  transition: all 0.3s ease;
+}
+footer a:hover { text-shadow:0 0 10px #0ff; }
+
+/* ==========================
+   Responsivo
+========================== */
+@media(max-width:768px){
+  #error-404 h1 { font-size:4rem; }
+  #error-404 h2 { font-size:1.5rem; }
+  #error-404 p { font-size:0.9em; }
+  header nav ul { flex-direction:column; gap:10px; }
 }
