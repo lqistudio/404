@@ -88,25 +88,6 @@ header nav ul li a:hover {
   max-width:600px;
 }
 
-/* Enlaces / botones */
-#error-404 a {
-  color: #0ff;
-  text-decoration: none;
-  font-weight: bold;
-  border: 2px solid #0ff;
-  padding: 10px 20px;
-  border-radius: 6px;
-  box-shadow:0 0 15px #0ff, inset 0 0 8px #00f;
-  transition: all 0.3s ease;
-  margin: 5px;
-}
-#error-404 a:hover {
-  background: #0ff;
-  color: #111;
-  box-shadow: 0 0 30px #0ff,0 0 60px #00f;
-  transform: translateY(-3px) scale(1.05);
-}
-
 /* ==========================
    Redes sociales tipo neón
 ========================== */
@@ -129,15 +110,36 @@ header nav ul li a:hover {
   color:#0ff;
   border:2px solid #0ff;
   border-radius:50%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   transition: all 0.3s ease;
-  box-shadow:0 0 10px #0ff, inset 0 0 5px #00f;
+  box-shadow:0 0 15px #0ff, inset 0 0 5px #00f;
 }
 .social-list li a:hover {
   color:#111;
   background:#0ff;
-  box-shadow:0 0 20px #0ff,0 0 40px #00f;
-  transform: scale(1.2);
+  box-shadow:0 0 25px #0ff,0 0 50px #00f;
+  transform: scale(1.2) translateY(-3px);
+}
+
+/* ==========================
+   Enlaces / botones
+========================== */
+#error-404 a:not(.social-list li a) {
+  color: #0ff;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #0ff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow:0 0 15px #0ff, inset 0 0 8px #00f;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+#error-404 a:not(.social-list li a):hover {
+  background: #0ff;
+  color: #111;
+  box-shadow: 0 0 30px #0ff,0 0 60px #00f;
+  transform: translateY(-3px) scale(1.05);
 }
 
 /* ==========================
