@@ -36,7 +36,25 @@ neonLinks.forEach(link => {
 });
 
 // ==========================
-// Header flotante
+// Worker animación manual (opcional JS si quieres más control)
+// ==========================
+const worker = document.querySelector('.worker');
+if (worker) {
+  let position = -100; // empieza fuera del viewport
+  const speed = 1; // velocidad en px/frame
+
+  function animateWorker() {
+    position += speed;
+    if (position > window.innerWidth) position = -worker.offsetWidth;
+    worker.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animateWorker);
+  }
+
+  animateWorker();
+}
+
+// ==========================
+// Header flotante (se puede desactivar si no hay scroll)
 // ==========================
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
