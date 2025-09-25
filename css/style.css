@@ -155,6 +155,7 @@ body::before {
   100% { transform: translateX(100%); }
 }
 
+
 /* Footer */
 footer {
   padding: 40px 20px;
