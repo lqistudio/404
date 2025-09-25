@@ -1,56 +1,5 @@
 /* ==========================
-   Fuente estilo retro / pixel
-========================== */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-/* ==========================
-   Reset y body
-========================== */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { 
-  font-family:'Press Start 2P', monospace; 
-  background:#111; 
-  color:#fff; 
-  overflow-x:hidden; 
-}
-
-/* ==========================
-   Header y menú
-========================== */
-header {
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:1000;
-  width:100%;
-  background: rgba(0,0,0,0.85);
-  border-bottom: 2px solid #0ff;
-  padding: 15px 0;
-  display:flex;
-  justify-content:center;
-}
-header nav ul {
-  list-style:none;
-  display:flex;
-  gap:20px;
-}
-header nav ul li a {
-  color:#fff;
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:1em;
-  position:relative;
-  transition: all 0.3s ease;
-}
-header nav ul li a:hover {
-  color:#0ff;
-  text-shadow:0 0 8px #0ff,0 0 20px #00f;
-}
-
-/* ==========================
-   Página 404
+   Página 404 / Construcción
 ========================== */
 #error-404 {
   display: flex;
@@ -59,7 +8,8 @@ header nav ul li a:hover {
   align-items: center;
   min-height: 100vh;
   text-align: center;
-  padding: 120px 20px 20px; /* Ajusta 120px según header */
+  padding: 160px 20px 60px; /* Más espacio arriba por el header fijo */
+  gap: 20px; /* Espaciado entre elementos */
 }
 
 /* Número 404 */
@@ -67,7 +17,7 @@ header nav ul li a:hover {
   font-size: 6rem;
   color: #e74c3c;
   text-shadow: 0 0 10px #f00, 0 0 30px #ff0, 0 0 50px #f00;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   animation: neonPulse404 1.5s infinite alternate;
 }
 
@@ -75,8 +25,8 @@ header nav ul li a:hover {
 #error-404 h2 {
   font-size: 2rem;
   color: #0ff;
-  text-shadow:0 0 10px #0ff,0 0 20px #00f,0 0 40px #0ff;
-  margin-bottom: 15px;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #00f, 0 0 40px #0ff;
+  margin-bottom: 10px;
   animation: glowTitle 2s infinite alternate;
 }
 
@@ -85,45 +35,41 @@ header nav ul li a:hover {
   font-size: 1em;
   color: #fff;
   margin-bottom: 15px;
-  max-width:600px;
+  max-width: 600px;
 }
 
-/* ==========================
-   Redes sociales tipo neón
-========================== */
+/* Redes sociales tipo neón */
 .social-list {
-  display:flex;
-  gap:15px;
-  margin-top:30px;
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
   flex-wrap: wrap;
-  justify-content:center;
-  list-style:none;
-  padding:0;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
 }
 .social-list li a {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:50px;
-  height:50px;
-  font-size:1.5rem;
-  color:#0ff;
-  border:2px solid #0ff;
-  border-radius:50%;
-  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  font-size: 1.8rem;
+  color: #0ff;
+  border: 2px solid #0ff;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.85);
   transition: all 0.3s ease;
-  box-shadow:0 0 15px #0ff, inset 0 0 5px #00f;
+  box-shadow: 0 0 15px #0ff, inset 0 0 5px #00f;
 }
 .social-list li a:hover {
-  color:#111;
-  background:#0ff;
-  box-shadow:0 0 25px #0ff,0 0 50px #00f;
+  color: #111;
+  background: #0ff;
+  box-shadow: 0 0 25px #0ff, 0 0 50px #00f;
   transform: scale(1.2) translateY(-3px);
 }
 
-/* ==========================
-   Enlaces / botones normales
-========================== */
+/* Enlaces / botones normales */
 #error-404 > .error-container > a {
   color: #0ff;
   text-decoration: none;
@@ -131,14 +77,14 @@ header nav ul li a:hover {
   border: 2px solid #0ff;
   padding: 10px 20px;
   border-radius: 6px;
-  box-shadow:0 0 15px #0ff, inset 0 0 8px #00f;
+  box-shadow: 0 0 15px #0ff, inset 0 0 8px #00f;
   transition: all 0.3s ease;
   margin: 5px;
 }
 #error-404 > .error-container > a:hover {
   background: #0ff;
   color: #111;
-  box-shadow: 0 0 30px #0ff,0 0 60px #00f;
+  box-shadow: 0 0 30px #0ff, 0 0 60px #00f;
   transform: translateY(-3px) scale(1.05);
 }
 
@@ -157,30 +103,26 @@ header nav ul li a:hover {
   100% { text-shadow:0 0 10px #0ff,0 0 20px #00f,0 0 40px #0ff; }
 }
 
-/* ==========================
-   Footer
-========================== */
+/* Footer */
 footer {
-  padding:40px 20px;
-  text-align:center;
-  border-top:2px solid #0ff;
-  margin-top:50px;
-  color:#fff;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 2px solid #0ff;
+  margin-top: 50px;
+  color: #fff;
 }
 footer a {
-  color:#0ff;
-  text-decoration:none;
+  color: #0ff;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
-footer a:hover { text-shadow:0 0 10px #0ff; }
+footer a:hover { text-shadow: 0 0 10px #0ff; }
 
-/* ==========================
-   Responsivo
-========================== */
+/* Responsivo */
 @media(max-width:768px){
-  #error-404 h1 { font-size:4rem; }
-  #error-404 h2 { font-size:1.5rem; }
-  #error-404 p { font-size:0.9em; }
-  header nav ul { flex-direction:column; gap:10px; }
-  .social-list li a { width:40px; height:40px; font-size:1.2rem; }
+  #error-404 h1 { font-size: 4rem; }
+  #error-404 h2 { font-size: 1.5rem; }
+  #error-404 p { font-size: 0.9em; }
+  .social-list li a { width: 45px; height: 45px; font-size: 1.4rem; }
+  header nav ul { flex-direction: column; gap: 10px; }
 }
