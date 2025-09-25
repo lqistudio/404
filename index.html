@@ -3,12 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 - Not Found | LQISTUDIO</title>
+<title>404 - Under Construction | LQISTUDIO</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ==========================
+   Reset y body
+========================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Sin scroll */
+  font-family: 'Press Start 2P', monospace;
+  background: #111;
+  color: #fff;
+}
+
+/* ==========================
+   Header
+========================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.85);
+  border-bottom: 2px solid #0ff;
+  padding: 15px 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+header nav ul li a:hover {
+  color: #0ff;
+  text-shadow: 0 0 8px #0ff, 0 0 20px #00f;
+}
+
+/* ==========================
+   Sección principal
+========================== */
+#error-404 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 120px 20px 20px;
+}
+
+/* Número 404 */
+#error-404 h1 {
+  font-size: 6rem;
+  color: #e74c3c;
+  text-shadow: 0 0 10px #f00, 0 0 30px #ff0, 0 0 50px #f00;
+  margin-bottom: 20px;
+  animation: neonPulse404 1.5s infinite alternate;
+}
+
+/* Texto principal */
+#error-404 h2 {
+  font-size: 2rem;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff,0 0 20px #00f,0 0 40px #0ff;
+  margin-bottom: 15px;
+  animation: glowTitle 2s infinite alternate;
+}
+
+/* Párrafos */
+#error-404 p {
+  font-size: 1em;
+  color: #fff;
+  margin-bottom: 15px;
+  max-width: 600px;
+}
+
+/* Redes sociales tipo neón */
+.social-list {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+.social-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  color: #0ff;
+  border: 2px solid #0ff;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.85);
+  box-shadow: 0 0 15px #0ff, inset 0 0 5px #00f;
+  transition: all 0.3s ease;
+}
+.social-list li a:hover {
+  color: #111;
+  background: #0ff;
+  box-shadow: 0 0 25px #0ff, 0 0 50px #00f;
+  transform: scale(1.2) translateY(-3px);
+}
+
+/* ==========================
+   Animaciones 404
+========================== */
+@keyframes neonPulse404 {
+  0% { text-shadow: 0 0 5px #f00, 0 0 10px #ff0; color:#fff; }
+  50% { text-shadow: 0 0 20px #f00, 0 0 40px #ff0; color:#fff; }
+  100% { text-shadow: 0 0 5px #f00, 0 0 10px #ff0; color:#fff; }
+}
+@keyframes glowTitle {
+  0% { text-shadow:0 0 10px #0ff,0 0 20px #00f,0 0 40px #0ff; }
+  50% { text-shadow:0 0 20px #0ff,0 0 40px #00f,0 0 80px #0ff; }
+  100% { text-shadow:0 0 10px #0ff,0 0 20px #00f,0 0 40px #0ff; }
+}
+
+/* ==========================
+   Footer
+========================== */
+footer {
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 2px solid #0ff;
+  color: #fff;
+  position: relative;
+  z-index: 10;
+}
+
+/* ==========================
+   Worker animación
+========================== */
+.worker-container {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.worker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: walkText 6s linear infinite;
+}
+.worker img {
+  width: 50px;
+  height: auto;
+}
+.worker-text {
+  font-size: 1rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #00f;
+}
+@keyframes walkText {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ==========================
+   Responsivo
+========================== */
+@media(max-width:768px){
+  #error-404 h1 { font-size: 4rem; }
+  #error-404 h2 { font-size: 1.5rem; }
+  #error-404 p { font-size: 0.9em; }
+  .social-list li a { width: 40px; height: 40px; font-size: 1.2rem; }
+  .worker img { width: 35px; }
+  .worker-text { font-size: 0.8rem; }
+}
+</style>
 </head>
 <body>
+
 <header id="main-header">
   <nav>
     <ul>
@@ -25,7 +214,13 @@
       <p>Men at work… 🚧</p>
       <p>Check back soon to see what's new at LQISTUDIO.</p>
 
-
+      <!-- Worker -->
+      <div class="worker-container">
+        <div class="worker">
+          <img src="assets/images/worker.png" alt="Worker">
+          <span class="worker-text">Men at work… 🚧</span>
+        </div>
+      </div>
 
       <!-- Redes sociales tipo neón -->
       <ul class="social-list">
