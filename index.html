@@ -42,6 +42,13 @@
 <footer>
   <p>&copy; 2025 LQISTUDIO. All Rights Reserved.</p>
 </footer>
-
+<script>
+  // Deshabilitar clic derecho en toda la página
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert("¡Clic derecho deshabilitado!");
+  });
+</script>
+  
 </body>
 </html>
