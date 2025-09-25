@@ -1,6 +1,39 @@
 /* ==========================
    Página 404 / Construcción estilo TRON
 ========================== */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Press Start 2P', monospace;
+  background: #111;
+  color: #0ff;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fondo tipo malla TRON animado */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 200%; height: 200%;
+  background: 
+    linear-gradient(#0ff 1px, transparent 1px),
+    linear-gradient(90deg, #0ff 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.08;
+  z-index: 0;
+  animation: gridMove 20s linear infinite;
+}
+
+/* Animación malla */
+@keyframes gridMove {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(-50px, -50px); }
+}
+
+/* Contenedor central */
 #error-404 {
   display: flex;
   flex-direction: column;
@@ -8,18 +41,21 @@
   align-items: center;
   min-height: 100vh;
   text-align: center;
-  padding: 160px 20px 60px;
   gap: 20px;
-  font-family: 'Press Start 2P', monospace;
-  color: #0ff;
+  position: relative;
+  z-index: 1;
 }
 
 /* Número 404 */
 #error-404 h1 {
   font-size: 6rem;
   color: #0ff;
-  text-shadow: 0 0 10px #0ff, 0 0 30px #00f, 0 0 50px #0ff;
-  margin-bottom: 10px;
+  text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #00f,
+    0 0 20px #0ff,
+    0 0 30px #00f;
+  margin: 0;
   animation: neonPulse 1.5s infinite alternate;
 }
 
@@ -28,15 +64,15 @@
   font-size: 2rem;
   color: #0ff;
   text-shadow: 0 0 10px #0ff, 0 0 20px #00f, 0 0 40px #0ff;
-  margin-bottom: 10px;
+  margin: 10px 0;
   animation: glowTitle 2s infinite alternate;
 }
 
 /* Párrafos */
 #error-404 p {
   font-size: 1em;
-  color: #fff;
-  margin-bottom: 15px;
+  color: #0ff;
+  margin: 5px 0;
   max-width: 600px;
 }
 
@@ -61,8 +97,8 @@
   border: 2px solid #0ff;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.85);
-  transition: all 0.3s ease;
   box-shadow: 0 0 15px #0ff, inset 0 0 10px #00f;
+  transition: all 0.3s ease;
 }
 .social-list li a:hover {
   color: #111;
@@ -71,32 +107,13 @@
   transform: scale(1.2) translateY(-3px);
 }
 
-/* Enlaces / botones */
-#error-404 > .error-container > a {
-  color: #0ff;
-  text-decoration: none;
-  font-weight: bold;
-  border: 2px solid #0ff;
-  padding: 10px 20px;
-  border-radius: 6px;
-  box-shadow: 0 0 15px #0ff, inset 0 0 8px #00f;
-  transition: all 0.3s ease;
-  margin: 5px;
-}
-#error-404 > .error-container > a:hover {
-  background: #0ff;
-  color: #111;
-  box-shadow: 0 0 30px #0ff, 0 0 60px #00f;
-  transform: translateY(-3px) scale(1.05);
-}
-
 /* ==========================
-   Animaciones
+   Animaciones neón
 ========================== */
 @keyframes neonPulse {
-  0% { text-shadow: 0 0 5px #0ff, 0 0 10px #00f; color:#0ff; }
-  50% { text-shadow: 0 0 20px #0ff, 0 0 40px #00f; color:#0ff; }
-  100% { text-shadow: 0 0 5px #0ff, 0 0 10px #00f; color:#0ff; }
+  0% { text-shadow: 0 0 5px #0ff, 0 0 10px #00f; }
+  50% { text-shadow: 0 0 20px #0ff, 0 0 40px #00f; }
+  100% { text-shadow: 0 0 5px #0ff, 0 0 10px #00f; }
 }
 
 @keyframes glowTitle {
@@ -105,20 +122,48 @@
   100% { text-shadow:0 0 10px #0ff,0 0 20px #00f,0 0 40px #0ff; }
 }
 
+/* ==========================
+   Worker animación abajo
+========================== */
+.worker-container {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+.worker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: walkText 6s linear infinite;
+}
+.worker img {
+  width: 50px;
+  height: auto;
+}
+.worker-text {
+  font-size: 1rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #00f;
+}
+@keyframes walkText {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 /* Footer */
 footer {
   padding: 40px 20px;
   text-align: center;
   border-top: 2px solid #0ff;
-  margin-top: 50px;
   color: #fff;
+  position: relative;
+  z-index: 1;
 }
-footer a {
-  color: #0ff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-footer a:hover { text-shadow: 0 0 10px #0ff; }
 
 /* Responsivo */
 @media(max-width:768px){
@@ -126,4 +171,6 @@ footer a:hover { text-shadow: 0 0 10px #0ff; }
   #error-404 h2 { font-size: 1.5rem; }
   #error-404 p { font-size: 0.9em; }
   .social-list li a { width: 45px; height: 45px; font-size: 1.4rem; }
+  .worker img { width: 35px; }
+  .worker-text { font-size: 0.8rem; }
 }
